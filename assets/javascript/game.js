@@ -1,5 +1,6 @@
 // Create an array of the alphabet
 var alphabet =  ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+var wrongGuess = 3
 // Create an array of song titles and randomly select them when the game is played
 var songs = [
     {
@@ -49,13 +50,25 @@ document.onkeyup = function(event) {
     var userGuess = event.key;
 
     if(songChoice["name"].includes(userGuess)){
-        for(var i = 0; i < songChoice["name"]; i ++){
+        letterIndex = [];
+        for(var i = 0; i < songChoice["name"]; i++){
             if(songChoice["name"][i] === userGuess){
-                
+                letterIndex.push(i);
             }
         }
+    
+    } else {
+        // If incorrect user gets a chance removed
+        wrongGuess--;
     }
+}
 // If correct the user gets to go again
-// If incorrect user gets a chance removed
 // If user runs out of chances the game ends
+if(wrongGuess <= 0){
+    // display game over message
+}
 // If user is correct, a window pops up and a youtube video of the song plays
+if(question = // song with spaces added){
+    window.open(songChoice.url, Winner, width:40%, height:auto)
+    // randomly select another song and start the game over
+}
