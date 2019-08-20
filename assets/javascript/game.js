@@ -29,18 +29,32 @@ var songs = [
     }
 ]
 
+// Choose a random song from the array
 var songChoice = songs[Math.floor(Math.random() * songs.length)];
 
+// Create an empty string as a placeholder
 var question = ""
+// Iterate through the song selected and add an underscore and a space if there is a letter and two spaces if there is just a space
 for(i = 0; i < songChoice["name"].length; i++){
-    if(songChoice[i] === " "){
-        songChoice += " ";
+    if(songChoice["name"][i] === " "){
+        question += "  ";
     } else {
     question += ["_ "];
     }
 }
-// Display the song title in a series of underscores
-// Prompt the user for a letter to enter and check their entry vs the current song
+
+document.onkeyup = function(event) {
+
+    // Determines which key was pressed.
+    var userGuess = event.key;
+
+    if(songChoice["name"].includes(userGuess)){
+        for(var i = 0; i < songChoice["name"]; i ++){
+            if(songChoice["name"][i] === userGuess){
+                
+            }
+        }
+    }
 // If correct the user gets to go again
 // If incorrect user gets a chance removed
 // If user runs out of chances the game ends
