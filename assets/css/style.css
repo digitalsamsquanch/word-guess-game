@@ -4,3 +4,7 @@
     margin-right: auto;
     height: 75%;
 }
+
+#currentWordLabel {
+    text-align: center;
+}
