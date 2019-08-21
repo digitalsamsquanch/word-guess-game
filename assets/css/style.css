@@ -8,3 +8,9 @@
 #currentWordLabel {
     text-align: center;
 }
+
+#currentWord {
+    text-align: center;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+}
