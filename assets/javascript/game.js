@@ -9,10 +9,8 @@
 $(document).ready(function() {
 // Create an array of the alphabet
     var alphabet =  ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-    var lettersGuessed = [];
-    $("#lettersGuessed").html(lettersGuessed);
-    var remainingGuesses = 3;
-    $("#remainingGuesses").html(remainingGuesses);
+    var lettersGuessed;
+    var remainingGuesses;
     // Create an array of song titles and randomly select them when the game is played
     var songs = [
         {
@@ -43,21 +41,12 @@ $(document).ready(function() {
     ]
 
     // Choose a random song from the array
-    var songChoice = songs[Math.floor(Math.random() * songs.length)];
-    var answer = songChoice["name"].toLowerCase();
+    var songChoice;
+    var answer;
 
     // Create an empty string as a placeholder
-    var question = [];
+    var question;
     // Iterate through the song selected and add an underscore and a space if there is a letter and two spaces if there is just a space
-    for(i = 0; i < answer.length; i++){
-        if(answer[i] === " "){
-            question.push(" ");
-        } else {
-        question.push("_");
-        }
-    }
-    console.log(question);
-    $("#currentWord").html(question);
 
 
     document.onkeydown = function(event) {
@@ -94,7 +83,29 @@ $(document).ready(function() {
             if(question.join("") == answer.toLowerCase()){
                 console.log(songChoice.url)
                 window.open(songChoice.url,'popUpWindow','height=700,width=1000,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
+                startGame();
             }
         }
     }
+
+    function startGame(){
+        songChoice = songs[Math.floor(Math.random() * songs.length)];
+        answer = songChoice["name"].toLowerCase();
+        question = [];
+        lettersGuessed = [];
+        $("#lettersGuessed").html(lettersGuessed);
+        $("#remainingGuesses").html(remainingGuesses);
+        for(i = 0; i < answer.length; i++){
+            if(answer[i] === " "){
+                question.push(" ");
+            } else {
+            question.push("_");
+            }
+        }
+        console.log(question);
+        $("#currentWord").html(question);
+        remainingGuesses = 3;
+    }
+
+    startGame();
 });
