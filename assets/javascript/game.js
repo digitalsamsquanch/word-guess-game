@@ -56,7 +56,7 @@ $(document).ready(function() {
             var userGuess = event.key;
             // console.log(userGuess)
             // console.log(answer.includes(userGuess))
-
+            
             lettersGuessed.push(userGuess);
             if(!answer.includes(userGuess)){
                 remainingGuesses--;
@@ -81,7 +81,8 @@ $(document).ready(function() {
             console.log(question.join(""))
 
             if(question.join("") == answer.toLowerCase()){
-                console.log(songChoice.url)
+                songChoice.inPlay = false;
+                console.log(songChoice);
                 window.open(songChoice.url,'popUpWindow','height=700,width=1000,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
                 startGame();
             }
@@ -90,9 +91,15 @@ $(document).ready(function() {
 
     function startGame(){
         songChoice = songs[Math.floor(Math.random() * songs.length)];
-        answer = songChoice["name"].toLowerCase();
+        //trying to prevent a song from being chosen if it was played already but not able to make this work
+        if(songChoice.inPlay != false){
+            answer = songChoice["name"].toLowerCase(); 
+        } else {
+            songChoice = songs[Math.floor(Math.random() * songs.length)];
+        }
         question = [];
         lettersGuessed = [];
+        remainingGuesses = 3;
         $("#lettersGuessed").html(lettersGuessed);
         $("#remainingGuesses").html(remainingGuesses);
         for(i = 0; i < answer.length; i++){
@@ -102,9 +109,9 @@ $(document).ready(function() {
             question.push("_");
             }
         }
+        console.log(songChoice)
         console.log(question);
         $("#currentWord").html(question);
-        remainingGuesses = 3;
     }
 
     startGame();
