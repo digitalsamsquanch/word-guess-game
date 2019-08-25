@@ -2,8 +2,9 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    height: 60%;
     margin-bottom: 10px;
+    width: 60%;
+    height: 60%;
 }
 
 #currentWordLabel {
@@ -14,4 +15,20 @@
     text-align: center;
     font-size: 1.5rem;
     letter-spacing: 3px;
+}
+
+.headRow {
+    height: 50%;
+    width: auto;
+}
+
+.scoreboard {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.mainHead {
+    text-align: center;
+    background-color: fuchsia;
 }

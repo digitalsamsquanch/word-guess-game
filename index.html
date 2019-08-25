@@ -9,11 +9,10 @@
     <script src="assets/javascript/game.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="container headRow">
         <div class="row">
-            <div class="col-md-12">
-                <img id="headerTitle" src="assets/images/weirdAlHeader.png" alt="">
-                <hr>
+            <div class="col-md-12 mainHead">
+                <h1>Press Any Key To Play</h1>
             </div>
         </div>
         <div class="row">
@@ -22,10 +21,13 @@
                 <p id="currentWord"></p>
             </div> 
         </div>
-        <div class="row">
-            <div class="col-md-4">
+        <div class="row scoreboard">
+            <div class="col-md-6">
                 <p>Remaining Guesses: <span id="remainingGuesses"></span></p>
                 <div>Letters Guessed: <span id="lettersGuessed"></span></div>
+            </div>
+            <div class="col-md-6">
+                <p>Wins: <div id="winCount"></div></p>
             </div>
         </div>
     </div>
